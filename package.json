@@ -1,0 +1,29 @@
+{
+  "name": "manus-clone",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Manus-like integrated platform with editor, AI chat, autonomous agent, RAG, and media generation",
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter web dev\" \"pnpm --filter browser-runner dev\" \"pnpm --filter rag-worker dev\" \"pnpm --filter metering-worker dev\"",
+    "build": "pnpm --filter web build",
+    "start": "pnpm --filter web start",
+    "lint": "pnpm --filter web lint",
+    "db:migrate": "pnpm --filter web db:migrate",
+    "db:seed": "pnpm --filter web db:seed",
+    "test": "pnpm --filter web test",
+    "test:e2e": "playwright test",
+    "docker:up": "docker-compose -f infra/docker-compose.yaml up -d",
+    "docker:down": "docker-compose -f infra/docker-compose.yaml down",
+    "docker:logs": "docker-compose -f infra/docker-compose.yaml logs -f"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
